@@ -17,8 +17,8 @@ const services = [
   {
     title: 'Épilation Douce',
     description: "Épilation à la cire tiède ou au fil, corps et visage, pour une peau soyeuse et durable. Nous utilisons uniquement des cires de qualité professionnelle, douces pour les peaux sensibles.",
-    image: 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=800&q=80',
-    alt: 'Épilation douce Paris — Graine de Beauté',
+    image: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=800&q=80',
+    alt: 'Épilation douce soins beauté Paris — Graine de Beauté',
     price: 'À partir de 15€',
     duree: '15 à 45 min',
     prestations: ['Sourcils', 'Lèvre supérieure', 'Jambes complètes', 'Aisselles', 'Maillot intégral'],
@@ -73,8 +73,8 @@ const services = [
 
         <div class="space-y-20">
           {services.map((service, i) => (
-            <div class={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${i % 2 === 1 ? 'flex flex-row-reverse' : ''}`}>
-              <div class={i % 2 === 1 ? 'lg:order-2' : ''}>
+            <div class={`flex flex-col lg:flex-row gap-12 items-center ${i % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
+              <div class="w-full lg:w-1/2 flex-shrink-0">
                 <div class="rounded-2xl overflow-hidden">
                   <img
                     src={service.image}
@@ -84,7 +84,7 @@ const services = [
                   />
                 </div>
               </div>
-              <div class={i % 2 === 1 ? 'lg:order-1' : ''}>
+              <div class="w-full lg:w-1/2">
                 <div class="flex items-center gap-3 mb-4">
                   <span class="text-sm text-[#C9A99A] font-medium">{service.price}</span>
                   <span class="text-[#E8D5CC]">·</span>
