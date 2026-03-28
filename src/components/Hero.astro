@@ -1,0 +1,58 @@
+---
+const phoneHref = 'tel:+33142365890';
+---
+
+<section class="relative min-h-[90vh] flex items-center overflow-hidden">
+  <div class="absolute inset-0 z-0">
+    <img
+      src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=1600&q=85"
+      alt="Soin visage sur-mesure Paris — Graine de Beauté"
+      class="w-full h-full object-cover"
+      loading="eager"
+    />
+    <div class="absolute inset-0 bg-[#1A1A1A]/45"></div>
+  </div>
+
+  <div class="relative z-10 max-w-6xl mx-auto px-6 py-24">
+    <div class="max-w-2xl">
+      <div class="reveal inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm text-white text-sm px-4 py-2 rounded-full mb-8 border border-white/20">
+        <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        4.9/5 — Plus de 500 clientes fidèles depuis 2016
+      </div>
+
+      <h1 class="reveal reveal-delay-1 text-5xl md:text-6xl lg:text-7xl text-white mb-6 leading-tight" style="font-family: 'Cormorant Variable', Georgia, serif; font-weight: 600;">
+        Révèle ta beauté<br />
+        <em class="text-[#E8D5CC] not-italic">naturelle</em> à Paris
+      </h1>
+
+      <p class="reveal reveal-delay-2 text-lg text-white/85 mb-10 leading-relaxed max-w-xl">
+        Chez Graine de Beauté, chaque soin est pensé uniquement pour vous.
+        Des soins sur-mesure au cœur du 9e, par des esthéticiennes passionnées qui vous écoutent vraiment.
+      </p>
+
+      <div class="reveal reveal-delay-3 flex flex-col sm:flex-row gap-4">
+        <a
+          href="/#contact"
+          class="inline-flex items-center justify-center bg-[#C9A99A] hover:bg-[#B8897A] text-white font-medium px-8 py-4 rounded-full transition-colors duration-200 text-base"
+        >
+          Prendre rendez-vous
+        </a>
+        <a
+          href="/services"
+          class="inline-flex items-center justify-center border border-white/50 hover:border-white text-white font-medium px-8 py-4 rounded-full transition-colors duration-200 text-base backdrop-blur-sm"
+        >
+          Découvrir nos soins
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>

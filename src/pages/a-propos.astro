@@ -1,0 +1,101 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Cta from '../components/Cta.astro';
+import Footer from '../components/Footer.astro';
+
+const valeurs = [
+  {
+    title: 'Authenticité',
+    text: "Pas de masque, pas de fioritures. Nous vous accueillons telles que vous êtes et travaillons à sublimer votre beauté naturelle.",
+  },
+  {
+    title: 'Écoute',
+    text: "Chaque séance commence par un vrai échange. Votre peau, vos envies, votre humeur du jour — tout compte pour personnaliser votre soin.",
+  },
+  {
+    title: 'Naturalité',
+    text: "Nous sélectionnons des produits aux formules saines, sans perturbateurs endocriniens, respectueux de votre peau et de l'environnement.",
+  },
+  {
+    title: 'Excellence',
+    text: "Nos esthéticiennes se forment régulièrement aux dernières techniques pour vous offrir des soins à la pointe de l'efficacité.",
+  },
+];
+---
+
+<Layout
+  title="À Propos — Graine de Beauté | Institut de Beauté Paris 9e"
+  description="Découvrez l'histoire de Graine de Beauté, notre équipe passionnée et nos valeurs. Institut de beauté Paris 9e depuis 2016, soins sur-mesure et produits naturels."
+>
+  <Header />
+  <main>
+    <section class="py-24 bg-[#FAF7F5]">
+      <div class="max-w-4xl mx-auto px-6 text-center mb-20">
+        <p class="text-xs uppercase tracking-widest text-[#C9A99A] mb-3">Notre histoire</p>
+        <h1 class="text-5xl md:text-6xl text-[#2C2C2C] mb-6" style="font-family: 'Cormorant Variable', Georgia, serif; font-weight: 600;">
+          Nées de la passion<br />de la beauté vraie
+        </h1>
+        <p class="text-[#7A6E6A] leading-relaxed text-lg">
+          Graine de Beauté a ouvert ses portes en 2016 au cœur du 9e arrondissement de Paris. Notre conviction dès le départ : chaque femme mérite des soins pensés pour elle, pas des protocoles identiques pour toutes.
+        </p>
+      </div>
+
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
+          <div class="rounded-2xl overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&q=80"
+              alt="Équipe Graine de Beauté soin visage Paris"
+              class="w-full h-[500px] object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div class="space-y-6">
+            <p class="text-[#7A6E6A] leading-relaxed">
+              Tout a commencé par une passion partagée entre deux amies esthéticiennes, lassées des instituts impersonnels où les clientes passent sur un tapis roulant sans qu'on prenne vraiment le temps de les connaître.
+            </p>
+            <p class="text-[#7A6E6A] leading-relaxed">
+              Chez Graine de Beauté, chaque nouvelle cliente prend le temps de discuter avec nous avant son premier soin. On veut comprendre votre peau, votre routine, vos attentes. C'est ça qui fait la différence.
+            </p>
+            <p class="text-[#7A6E6A] leading-relaxed">
+              Huit ans plus tard, nous avons accompagné plus de 500 femmes dans leur parcours beauté. Certaines viennent depuis le premier jour. C'est notre plus grande fierté.
+            </p>
+            <div class="grid grid-cols-2 gap-6 pt-4">
+              {[
+                { value: '2016', label: 'Année de création' },
+                { value: '+500', label: 'Clientes fidèles' },
+                { value: '4.9/5', label: 'Note Google' },
+                { value: '100%', label: 'Produits naturels' },
+              ].map(stat => (
+                <div class="text-center p-5 bg-white rounded-xl">
+                  <p class="text-2xl text-[#C9A99A] mb-1" style="font-family: 'Cormorant Variable', Georgia, serif; font-weight: 700;">{stat.value}</p>
+                  <p class="text-xs text-[#7A6E6A]">{stat.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-24">
+          <div class="text-center mb-12">
+            <p class="text-xs uppercase tracking-widest text-[#C9A99A] mb-3">Ce qui nous guide</p>
+            <h2 class="text-3xl md:text-4xl text-[#2C2C2C]" style="font-family: 'Cormorant Variable', Georgia, serif; font-weight: 600;">
+              Nos valeurs
+            </h2>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {valeurs.map(v => (
+              <div class="bg-white rounded-2xl p-8">
+                <h3 class="text-xl text-[#C9A99A] mb-3" style="font-family: 'Cormorant Variable', Georgia, serif; font-weight: 600;">{v.title}</h3>
+                <p class="text-[#7A6E6A] leading-relaxed">{v.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+    <Cta />
+  </main>
+  <Footer />
+</Layout>

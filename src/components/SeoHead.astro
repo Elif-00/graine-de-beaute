@@ -1,0 +1,67 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  url: string;
+  image?: string;
+}
+
+const { title, description, url, image = 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=1200&q=80' } = Astro.props;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BeautySalon",
+  "name": "Graine de Beauté",
+  "description": "Institut de beauté parisien spécialisé en soins sur-mesure aux produits naturels — Paris 9e",
+  "url": url,
+  "telephone": "+33142365890",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "24 rue de la Paix",
+    "addressLocality": "Paris",
+    "postalCode": "75009",
+    "addressRegion": "Île-de-France",
+    "addressCountry": "FR"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+      "opens": "10:00",
+      "closes": "19:00"
+    }
+  ],
+  "priceRange": "€€",
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 48.8566,
+    "longitude": 2.3522
+  },
+  "image": image,
+  "sameAs": []
+};
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="generator" content={Astro.generator} />
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={url} />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={url} />
+<meta property="og:image" content={image} />
+<meta property="og:locale" content="fr_FR" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={image} />
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>" />
+
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />

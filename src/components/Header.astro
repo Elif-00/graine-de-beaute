@@ -1,0 +1,96 @@
+---
+const phone = '+33 1 42 36 58 90';
+const phoneHref = 'tel:+33142365890';
+const nav = [
+  { label: 'Accueil', href: '/' },
+  { label: 'Services', href: '/services' },
+  { label: 'À propos', href: '/a-propos' },
+  { label: 'Contact', href: '/#contact' },
+];
+---
+
+<header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-shadow duration-300">
+  <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between bg-[#FAF7F5]/95 backdrop-blur-sm">
+    <a href="/" class="font-heading text-2xl text-[#2C2C2C] tracking-wide" style="font-family: 'Cormorant Variable', Georgia, serif; font-weight: 600;">
+      Graine de Beauté
+    </a>
+
+    <nav class="hidden md:flex items-center gap-8">
+      {nav.map(item => (
+        <a href={item.href} class="text-sm text-[#7A6E6A] hover:text-[#C9A99A] transition-colors duration-200 tracking-wide">
+          {item.label}
+        </a>
+      ))}
+    </nav>
+
+    <a
+      href={phoneHref}
+      class="hidden md:inline-flex items-center gap-2 bg-[#C9A99A] hover:bg-[#B8897A] text-white text-sm font-medium px-5 py-2.5 rounded-full transition-colors duration-200"
+    >
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.49 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.4 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.37a16 16 0 0 0 5.72 5.72l1.83-1.84a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 14.92z"/></svg>
+      {phone}
+    </a>
+
+    <button
+      id="hamburger"
+      class="md:hidden flex flex-col gap-1.5 p-2"
+      aria-label="Ouvrir le menu"
+      aria-expanded="false"
+    >
+      <span class="block w-6 h-0.5 bg-[#2C2C2C] transition-all duration-300" id="bar1"></span>
+      <span class="block w-6 h-0.5 bg-[#2C2C2C] transition-all duration-300" id="bar2"></span>
+      <span class="block w-6 h-0.5 bg-[#2C2C2C] transition-all duration-300" id="bar3"></span>
+    </button>
+  </div>
+
+  <div
+    id="mobile-menu"
+    class="md:hidden hidden bg-[#FAF7F5] border-t border-[#E8D5CC] px-6 py-6 flex flex-col gap-5"
+  >
+    {nav.map(item => (
+      <a href={item.href} class="text-[#2C2C2C] text-lg" style="font-family: 'Cormorant Variable', Georgia, serif; font-weight: 500;">
+        {item.label}
+      </a>
+    ))}
+    <a
+      href={phoneHref}
+      class="mt-2 inline-flex items-center justify-center gap-2 bg-[#C9A99A] text-white font-medium px-5 py-3 rounded-full"
+    >
+      {phone}
+    </a>
+  </div>
+</header>
+
+<div class="h-16"></div>
+
+<script>
+  const header = document.getElementById('site-header');
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const bar1 = document.getElementById('bar1');
+  const bar2 = document.getElementById('bar2');
+  const bar3 = document.getElementById('bar3');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 10) {
+      header?.classList.add('shadow-sm');
+    } else {
+      header?.classList.remove('shadow-sm');
+    }
+  });
+
+  hamburger?.addEventListener('click', () => {
+    const isOpen = mobileMenu?.classList.toggle('hidden') === false;
+    hamburger.setAttribute('aria-expanded', String(!isOpen));
+    hamburger.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
+    if (!isOpen) {
+      bar1?.classList.remove('rotate-45', 'translate-y-2');
+      bar2?.classList.remove('opacity-0');
+      bar3?.classList.remove('-rotate-45', '-translate-y-2');
+    } else {
+      bar1?.classList.add('rotate-45', 'translate-y-2');
+      bar2?.classList.add('opacity-0');
+      bar3?.classList.add('-rotate-45', '-translate-y-2');
+    }
+  });
+</script>

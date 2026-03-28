@@ -1,0 +1,67 @@
+---
+const testimonials = [
+  {
+    name: 'Sophie M.',
+    location: 'Paris 11e',
+    text: 'Mon ritual mensuel incontournable ! Les soins visage sont magiques, ma peau est transformée en une séance. Je recommande sans hésiter.',
+    stars: 5,
+  },
+  {
+    name: 'Camille L.',
+    location: 'Paris 9e',
+    text: "Accueil chaleureux, ambiance cosy et vraiment relaxante. Je recommande les massages les yeux fermés ! On se sent vraiment prise en charge.",
+    stars: 5,
+  },
+  {
+    name: 'Isabelle R.',
+    location: 'Paris 15e',
+    text: 'Manucure semi-permanente impeccable et ultra-durable. Je reviens depuis 3 ans maintenant, jamais déçue. Une équipe au top !',
+    stars: 5,
+  },
+];
+---
+
+<section class="py-24 bg-[#E8D5CC]/30">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16 reveal">
+      <p class="text-xs uppercase tracking-widest text-[#C9A99A] mb-3">Avis clientes</p>
+      <h2 class="text-4xl md:text-5xl text-[#2C2C2C]" style="font-family: 'Cormorant Variable', Georgia, serif; font-weight: 600;">
+        Elles nous font confiance
+      </h2>
+      <p class="mt-4 text-[#7A6E6A]">
+        <strong class="text-[#2C2C2C]">4.9/5</strong> — 47 avis vérifiés sur Google
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {testimonials.map((t, i) => (
+        <div class={`reveal reveal-delay-${i + 1} bg-white rounded-2xl p-8 shadow-sm`}>
+          <div class="flex gap-0.5 mb-5">
+            {Array.from({ length: t.stars }).map(() => (
+              <svg width="16" height="16" fill="#C9A99A" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            ))}
+          </div>
+          <p class="text-[#7A6E6A] leading-relaxed mb-6 italic">"{t.text}"</p>
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-[#E8D5CC] flex items-center justify-center text-[#C9A99A] font-semibold text-sm" style="font-family: 'Cormorant Variable', Georgia, serif;">
+              {t.name[0]}
+            </div>
+            <div>
+              <p class="font-semibold text-sm text-[#2C2C2C]">{t.name}</p>
+              <p class="text-xs text-[#7A6E6A]">{t.location}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>

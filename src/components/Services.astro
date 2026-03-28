@@ -1,0 +1,99 @@
+---
+const services = [
+  {
+    title: 'Soin du Visage',
+    description: 'Hydratation, éclat et anti-âge personnalisés selon votre type de peau.',
+    price: 'À partir de 65€',
+    image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&q=80',
+    alt: 'Soin visage sur-mesure Paris — Graine de Beauté',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/><path d="M20 3c0 4.97-4.03 9-9 9"/></svg>`,
+  },
+  {
+    title: 'Épilation Douce',
+    description: 'Épilation à la cire tiède ou au fil, corps et visage, pour une peau soyeuse durable.',
+    price: 'À partir de 15€',
+    image: 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=600&q=80',
+    alt: 'Épilation douce naturelle Paris — Graine de Beauté',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5l6.74-6.76z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="15"/></svg>`,
+  },
+  {
+    title: 'Manucure & Pédicure',
+    description: 'Vernis classique, semi-permanent ou nail art — des mains soignées qui vous ressemblent.',
+    price: 'À partir de 35€',
+    image: 'https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&q=80',
+    alt: 'Manucure nail art Paris — Graine de Beauté',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0"/><path d="M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v2"/><path d="M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg>`,
+  },
+  {
+    title: 'Massage Relaxant',
+    description: 'Massage corps aux huiles essentielles naturelles, pour évacuer les tensions et retrouver sérénité.',
+    price: 'À partir de 70€',
+    image: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=600&q=80',
+    alt: 'Massage relaxant huiles essentielles Paris — Graine de Beauté',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/></svg>`,
+  },
+  {
+    title: 'Maquillage',
+    description: 'Make-up naturel du quotidien ou maquillage événementiel — sublimez votre beauté pour chaque occasion.',
+    price: 'À partir de 55€',
+    image: 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=600&q=80',
+    alt: 'Maquillage professionnel Paris — Graine de Beauté',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>`,
+  },
+];
+---
+
+<section id="services" class="py-24 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16 reveal">
+      <p class="text-xs uppercase tracking-widest text-[#C9A99A] mb-3">Ce que nous faisons</p>
+      <h2 class="text-4xl md:text-5xl text-[#2C2C2C]" style="font-family: 'Cormorant Variable', Georgia, serif; font-weight: 600;">
+        Nos soins & services
+      </h2>
+      <p class="mt-4 text-[#7A6E6A] max-w-xl mx-auto">
+        Chaque soin est personnalisé selon votre peau, vos envies et votre temps. Parce que vous le méritez vraiment.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {services.map((service, i) => (
+        <div
+          class={`reveal reveal-delay-${Math.min(i + 1, 6)} group bg-[#FAF7F5] rounded-2xl overflow-hidden hover:-translate-y-1 transition-transform duration-300`}
+        >
+          <div class="h-48 overflow-hidden">
+            <img
+              src={service.image}
+              alt={service.alt}
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              loading="lazy"
+            />
+          </div>
+          <div class="p-6">
+            <div class="w-10 h-10 rounded-full bg-[#E8D5CC] flex items-center justify-center text-[#C9A99A] mb-4">
+              <Fragment set:html={service.icon} />
+            </div>
+            <h3 class="text-xl mb-2 text-[#2C2C2C]" style="font-family: 'Cormorant Variable', Georgia, serif; font-weight: 600;">
+              {service.title}
+            </h3>
+            <p class="text-sm text-[#7A6E6A] leading-relaxed mb-4">{service.description}</p>
+            <div class="flex items-center justify-between">
+              <span class="text-sm font-medium text-[#C9A99A]">{service.price}</span>
+              <a href="/#contact" class="text-xs text-[#7A6E6A] hover:text-[#C9A99A] transition-colors duration-200 underline underline-offset-2">
+                Réserver
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>

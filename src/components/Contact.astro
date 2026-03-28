@@ -1,0 +1,172 @@
+---
+const phone = '+33 1 42 36 58 90';
+const phoneHref = 'tel:+33142365890';
+---
+
+<section id="contact" class="py-24 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16 reveal">
+      <p class="text-xs uppercase tracking-widest text-[#C9A99A] mb-3">Prenez rendez-vous</p>
+      <h2 class="text-4xl md:text-5xl text-[#2C2C2C]" style="font-family: 'Cormorant Variable', Georgia, serif; font-weight: 600;">
+        On vous attend
+      </h2>
+      <p class="mt-4 text-[#7A6E6A] max-w-md mx-auto">
+        Appelez-nous ou envoyez un message — nous vous répondrons sous 2h.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+      <div class="reveal">
+        <form
+          action="https://formspree.io/f/your-form-id"
+          method="POST"
+          class="space-y-5"
+          id="contact-form"
+        >
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label for="prenom" class="block text-sm font-medium text-[#2C2C2C] mb-1.5">Prénom *</label>
+              <input
+                type="text"
+                id="prenom"
+                name="prenom"
+                required
+                placeholder="Marie"
+                class="w-full px-4 py-3 rounded-xl border border-[#E8D5CC] bg-[#FAF7F5] text-[#2C2C2C] placeholder:text-[#7A6E6A]/50 focus:outline-none focus:border-[#C9A99A] transition-colors duration-200"
+              />
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium text-[#2C2C2C] mb-1.5">Email *</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                placeholder="marie@exemple.fr"
+                class="w-full px-4 py-3 rounded-xl border border-[#E8D5CC] bg-[#FAF7F5] text-[#2C2C2C] placeholder:text-[#7A6E6A]/50 focus:outline-none focus:border-[#C9A99A] transition-colors duration-200"
+              />
+            </div>
+          </div>
+          <div>
+            <label for="telephone" class="block text-sm font-medium text-[#2C2C2C] mb-1.5">Téléphone</label>
+            <input
+              type="tel"
+              id="telephone"
+              name="telephone"
+              placeholder="06 12 34 56 78"
+              class="w-full px-4 py-3 rounded-xl border border-[#E8D5CC] bg-[#FAF7F5] text-[#2C2C2C] placeholder:text-[#7A6E6A]/50 focus:outline-none focus:border-[#C9A99A] transition-colors duration-200"
+            />
+          </div>
+          <div>
+            <label for="message" class="block text-sm font-medium text-[#2C2C2C] mb-1.5">Message *</label>
+            <textarea
+              id="message"
+              name="message"
+              required
+              rows="5"
+              placeholder="Bonjour, je souhaite prendre rendez-vous pour..."
+              class="w-full px-4 py-3 rounded-xl border border-[#E8D5CC] bg-[#FAF7F5] text-[#2C2C2C] placeholder:text-[#7A6E6A]/50 focus:outline-none focus:border-[#C9A99A] transition-colors duration-200 resize-none"
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            class="w-full bg-[#C9A99A] hover:bg-[#B8897A] text-white font-medium py-4 rounded-full transition-colors duration-200 text-base"
+          >
+            Envoyer ma demande
+          </button>
+          <p id="form-success" class="hidden text-center text-[#C9A99A] font-medium">
+            Message envoyé ! Nous vous répondons sous 2h.
+          </p>
+        </form>
+      </div>
+
+      <div class="reveal reveal-delay-2 space-y-8">
+        <div>
+          <p class="text-xs uppercase tracking-widest text-[#C9A99A] mb-4">Informations pratiques</p>
+          <div class="space-y-4">
+            <div class="flex gap-4">
+              <div class="w-10 h-10 rounded-full bg-[#E8D5CC] flex items-center justify-center text-[#C9A99A] flex-shrink-0">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <p class="font-medium text-[#2C2C2C] text-sm">Adresse</p>
+                <a
+                  href="https://www.google.com/maps/search/24+rue+de+la+Paix+75009+Paris"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-sm text-[#7A6E6A] hover:text-[#C9A99A] transition-colors duration-200"
+                >
+                  24 rue de la Paix, 75009 Paris
+                </a>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="w-10 h-10 rounded-full bg-[#E8D5CC] flex items-center justify-center text-[#C9A99A] flex-shrink-0">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.49 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.4 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.37a16 16 0 0 0 5.72 5.72l1.83-1.84a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 14.92z"/></svg>
+              </div>
+              <div>
+                <p class="font-medium text-[#2C2C2C] text-sm">Téléphone</p>
+                <a href={phoneHref} class="text-sm text-[#7A6E6A] hover:text-[#C9A99A] transition-colors duration-200">{phone}</a>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="w-10 h-10 rounded-full bg-[#E8D5CC] flex items-center justify-center text-[#C9A99A] flex-shrink-0">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              </div>
+              <div>
+                <p class="font-medium text-[#2C2C2C] text-sm">Email</p>
+                <a href="mailto:contact@grainedebeaute.fr" class="text-sm text-[#7A6E6A] hover:text-[#C9A99A] transition-colors duration-200">
+                  contact@grainedebeaute.fr
+                </a>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="w-10 h-10 rounded-full bg-[#E8D5CC] flex items-center justify-center text-[#C9A99A] flex-shrink-0">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div>
+                <p class="font-medium text-[#2C2C2C] text-sm">Horaires</p>
+                <p class="text-sm text-[#7A6E6A]">Lundi – Samedi : 10h – 19h</p>
+                <p class="text-sm text-[#7A6E6A]">Fermé le dimanche</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-2xl overflow-hidden h-56 bg-[#E8D5CC]">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.142047744348!2d2.3302!3d48.8697!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e38b5f75a43%3A0x41b0a8b8b8b8b8b8!2s24+Rue+de+la+Paix%2C+75009+Paris!5e0!3m2!1sfr!2sfr!4v1"
+            width="100%"
+            height="100%"
+            style="border:0;"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Graine de Beauté — 24 rue de la Paix, Paris 9e"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const successMsg = document.getElementById('form-success');
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const res = await fetch(form.action, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+    if (res.ok) {
+      form.reset();
+      successMsg?.classList.remove('hidden');
+    }
+  });
+</script>

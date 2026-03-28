@@ -1,0 +1,91 @@
+---
+const stats = [
+  { value: '8 ans', label: "d'expérience" },
+  { value: '+500', label: 'clientes fidèles' },
+  { value: '4.9/5', label: 'avis Google' },
+  { value: '100%', label: 'produits naturels' },
+];
+
+const atouts = [
+  {
+    title: 'Soins sur-mesure',
+    text: 'Chaque protocole est adapté à votre peau et vos besoins. Pas de soins standards, pas de routine identique.',
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>`,
+  },
+  {
+    title: 'Produits naturels',
+    text: 'Nous sélectionnons des produits éco-responsables, doux pour votre peau et pour la planète.',
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>`,
+  },
+  {
+    title: 'Proximité Paris 9e',
+    text: 'Situé au cœur du 9e arrondissement, facilement accessible depuis tout Paris.',
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>`,
+  },
+];
+---
+
+<section id="a-propos" class="py-24 bg-[#FAF7F5]">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div class="reveal">
+        <div class="relative rounded-2xl overflow-hidden">
+          <img
+            src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800&q=80"
+            alt="Produits soins naturels Graine de Beauté Paris"
+            class="w-full h-[500px] object-cover"
+            loading="lazy"
+          />
+          <div class="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-sm rounded-xl p-5">
+            <div class="grid grid-cols-4 gap-4 text-center">
+              {stats.map(stat => (
+                <div>
+                  <p class="text-xl text-[#C9A99A]" style="font-family: 'Cormorant Variable', Georgia, serif; font-weight: 700;">{stat.value}</p>
+                  <p class="text-xs text-[#7A6E6A] mt-0.5">{stat.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="reveal">
+          <p class="text-xs uppercase tracking-widest text-[#C9A99A] mb-3">Notre histoire</p>
+          <h2 class="text-4xl md:text-5xl text-[#2C2C2C] mb-6" style="font-family: 'Cormorant Variable', Georgia, serif; font-weight: 600;">
+            Un institut né de la passion de la beauté vraie
+          </h2>
+          <p class="text-[#7A6E6A] leading-relaxed mb-4">
+            Fondé en 2016, Graine de Beauté est né d'une conviction simple : chaque femme mérite des soins pensés pour elle, pas des protocoles identiques pour toutes.
+          </p>
+          <p class="text-[#7A6E6A] leading-relaxed mb-10">
+            Notre équipe d'esthéticiennes passionnées vous accueille dans un espace cosy et bienveillant, au cœur du 9e arrondissement. Ici, vous êtes écoutée, chouchoutée, et vous repartez rayonnante.
+          </p>
+        </div>
+
+        <div class="space-y-6">
+          {atouts.map((atout, i) => (
+            <div class={`reveal reveal-delay-${i + 1} flex gap-4`}>
+              <div class="w-10 h-10 rounded-full bg-[#E8D5CC] flex items-center justify-center text-[#C9A99A] flex-shrink-0">
+                <Fragment set:html={atout.icon} />
+              </div>
+              <div>
+                <h3 class="font-semibold text-[#2C2C2C] mb-1">{atout.title}</h3>
+                <p class="text-sm text-[#7A6E6A] leading-relaxed">{atout.text}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>

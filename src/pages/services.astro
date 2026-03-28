@@ -1,0 +1,123 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Cta from '../components/Cta.astro';
+import Footer from '../components/Footer.astro';
+
+const services = [
+  {
+    title: 'Soin du Visage',
+    description: "Hydratation, éclat et anti-âge personnalisés selon votre type de peau. Notre protocole commence par un diagnostic complet pour adapter chaque soin à vos besoins réels. Résultats visibles dès la première séance.",
+    image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&q=80',
+    alt: 'Soin du visage sur-mesure Paris — Graine de Beauté',
+    price: 'À partir de 65€',
+    duree: '60 à 90 min',
+    prestations: ['Soin hydratant', 'Soin anti-âge', 'Soin éclat', 'Soin purifiant', 'Gommage visage'],
+  },
+  {
+    title: 'Épilation Douce',
+    description: "Épilation à la cire tiède ou au fil, corps et visage, pour une peau soyeuse et durable. Nous utilisons uniquement des cires de qualité professionnelle, douces pour les peaux sensibles.",
+    image: 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=800&q=80',
+    alt: 'Épilation douce Paris — Graine de Beauté',
+    price: 'À partir de 15€',
+    duree: '15 à 45 min',
+    prestations: ['Sourcils', 'Lèvre supérieure', 'Jambes complètes', 'Aisselles', 'Maillot intégral'],
+  },
+  {
+    title: 'Manucure & Pédicure',
+    description: "Vernis classique, semi-permanent ou nail art — des mains et des pieds soignés qui vous ressemblent. Notre esthéticienne prend soin de chaque détail pour un résultat parfait et durable.",
+    image: 'https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800&q=80',
+    alt: 'Manucure nail art Paris — Graine de Beauté',
+    price: 'À partir de 35€',
+    duree: '45 à 75 min',
+    prestations: ['Vernis classique', 'Semi-permanent', 'Nail art', 'Soin mains', 'Pédicure complète'],
+  },
+  {
+    title: 'Massage Relaxant',
+    description: "Massage corps aux huiles essentielles naturelles, pour évacuer les tensions et retrouver sérénité. Un moment suspendu, rien que pour vous, dans notre cabine cosy et apaisante.",
+    image: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=800&q=80',
+    alt: 'Massage relaxant Paris — Graine de Beauté',
+    price: 'À partir de 70€',
+    duree: '60 à 90 min',
+    prestations: ['Massage suédois', 'Massage relaxant dos', 'Massage corps complet', 'Massage crânien', 'Réflexologie plantaire'],
+  },
+  {
+    title: 'Maquillage',
+    description: "Make-up naturel du quotidien ou maquillage événementiel — sublimez votre beauté pour chaque occasion. Mariages, soirées ou simplement parce que vous le valez.",
+    image: 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800&q=80',
+    alt: 'Maquillage professionnel Paris — Graine de Beauté',
+    price: 'À partir de 55€',
+    duree: '45 à 75 min',
+    prestations: ['Maquillage naturel', 'Maquillage soirée', 'Maquillage mariée', 'Cours de maquillage', 'Relooking'],
+  },
+];
+---
+
+<Layout
+  title="Nos Soins & Services — Graine de Beauté | Institut de Beauté Paris 9e"
+  description="Découvrez tous nos soins : soin visage, épilation, manucure, massage relaxant et maquillage. Institut de beauté Paris 9e. Produits naturels, soins sur-mesure."
+>
+  <Header />
+  <main>
+    <section class="py-24 bg-[#FAF7F5]">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-20">
+          <p class="text-xs uppercase tracking-widest text-[#C9A99A] mb-3">Nos prestations</p>
+          <h1 class="text-5xl md:text-6xl text-[#2C2C2C] mb-6" style="font-family: 'Cormorant Variable', Georgia, serif; font-weight: 600;">
+            Soins & Services
+          </h1>
+          <p class="text-[#7A6E6A] max-w-xl mx-auto text-lg">
+            Des soins pensés pour vous, avec des produits naturels et des techniques éprouvées. Chaque prestation est adaptée à vos besoins.
+          </p>
+        </div>
+
+        <div class="space-y-20">
+          {services.map((service, i) => (
+            <div class={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${i % 2 === 1 ? 'flex flex-row-reverse' : ''}`}>
+              <div class={i % 2 === 1 ? 'lg:order-2' : ''}>
+                <div class="rounded-2xl overflow-hidden">
+                  <img
+                    src={service.image}
+                    alt={service.alt}
+                    class="w-full h-80 object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+              <div class={i % 2 === 1 ? 'lg:order-1' : ''}>
+                <div class="flex items-center gap-3 mb-4">
+                  <span class="text-sm text-[#C9A99A] font-medium">{service.price}</span>
+                  <span class="text-[#E8D5CC]">·</span>
+                  <span class="text-sm text-[#7A6E6A]">{service.duree}</span>
+                </div>
+                <h2 class="text-3xl md:text-4xl text-[#2C2C2C] mb-4" style="font-family: 'Cormorant Variable', Georgia, serif; font-weight: 600;">
+                  {service.title}
+                </h2>
+                <p class="text-[#7A6E6A] leading-relaxed mb-6">{service.description}</p>
+                <div class="mb-8">
+                  <p class="text-xs uppercase tracking-widest text-[#7A6E6A] mb-3">Prestations incluses</p>
+                  <ul class="space-y-2">
+                    {service.prestations.map(p => (
+                      <li class="flex items-center gap-2 text-sm text-[#2C2C2C]">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A99A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        {p}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <a
+                  href="/#contact"
+                  class="inline-flex items-center gap-2 bg-[#C9A99A] hover:bg-[#B8897A] text-white font-medium px-7 py-3.5 rounded-full transition-colors duration-200"
+                >
+                  Réserver ce soin
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+    <Cta />
+  </main>
+  <Footer />
+</Layout>

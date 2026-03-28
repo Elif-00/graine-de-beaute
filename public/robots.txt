@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://graine-de-beaute.vercel.app/sitemap-index.xml

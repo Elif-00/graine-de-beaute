@@ -1,0 +1,57 @@
+---
+const phone = '+33 1 42 36 58 90';
+const phoneHref = 'tel:+33142365890';
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-[#2C2C2C] text-[#E8D5CC]">
+  <div class="max-w-6xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-3 gap-12">
+    <div>
+      <p class="text-2xl mb-3" style="font-family: 'Cormorant Variable', Georgia, serif; font-weight: 600; color: #FAF7F5;">
+        Graine de Beauté
+      </p>
+      <p class="text-sm text-[#C9A99A] italic">Votre instant rien que pour vous.</p>
+      <p class="mt-4 text-sm text-[#E8D5CC]/70 leading-relaxed">
+        Institut de beauté au cœur de Paris 9e. Soins sur-mesure, produits naturels, résultats visibles.
+      </p>
+    </div>
+
+    <div>
+      <p class="text-xs uppercase tracking-widest mb-5 text-[#C9A99A]">Navigation</p>
+      <ul class="space-y-3">
+        {[
+          { label: 'Accueil', href: '/' },
+          { label: 'Services', href: '/services' },
+          { label: 'À propos', href: '/a-propos' },
+          { label: 'Contact', href: '/#contact' },
+          { label: 'Mentions légales', href: '/mentions-legales' },
+        ].map(item => (
+          <li>
+            <a href={item.href} class="text-sm text-[#E8D5CC]/70 hover:text-[#C9A99A] transition-colors duration-200">
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div>
+      <p class="text-xs uppercase tracking-widest mb-5 text-[#C9A99A]">Nous trouver</p>
+      <address class="not-italic space-y-3 text-sm text-[#E8D5CC]/70">
+        <p>24 rue de la Paix<br />75009 Paris</p>
+        <a href={phoneHref} class="block hover:text-[#C9A99A] transition-colors duration-200">{phone}</a>
+        <a href="mailto:contact@grainedebeaute.fr" class="block hover:text-[#C9A99A] transition-colors duration-200">
+          contact@grainedebeaute.fr
+        </a>
+        <p class="pt-1">Lun–Sam : 10h–19h</p>
+      </address>
+    </div>
+  </div>
+
+  <div class="border-t border-white/10 px-6 py-5 max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2">
+    <p class="text-xs text-[#E8D5CC]/40">© {year} Graine de Beauté — Tous droits réservés</p>
+    <a href="/mentions-legales" class="text-xs text-[#E8D5CC]/40 hover:text-[#C9A99A] transition-colors duration-200">
+      Mentions légales
+    </a>
+  </div>
+</footer>
